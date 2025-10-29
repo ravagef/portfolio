@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 160 160">
+  <rect width="160" height="160" fill="#0a0b0f"/>
+  <path d="M40.55,29.04L4.79,123.76h15.4l14.6-40.36c.21-.58.42-1.15.63-1.73,4.81-13.29,9.61-26.58,14.42-39.87,1.54-4.25,3.08-8.51,4.61-12.76l-2.97,12.79,15.16,41.59h4.94l4.68-12.79c-5.12-13.86-10.23-27.72-15.35-41.58" fill="#ffffff"/>
+  <rect x="29.62" y="83.42" width="51.41" height="12.54" fill="#ffffff"/>
+  <polyline points="91.96 29.04 56.2 123.76 71.6 123.76 86.19 83.4 105.85 29.04" fill="#ffffff" stroke="#ffffff" stroke-width="0.5"/>
+  <polyline points="157.25 28.65 137.6 83.01 123 123.37 107.6 123.37 143.36 28.65" fill="#ffffff" stroke="#ffffff" stroke-width="0.5"/>
+  <polyline points="132.27 63.83 136.6 74.74 76.77 98.47 72.44 87.56" fill="#ffffff" stroke="#ffffff" stroke-width="0.5"/>
+  <polyline points="51.47 41.83 49.76 41.83 49.76 29.04 55.42 29.04" fill="#ffffff" stroke="#ffffff" stroke-width="0.5"/>
+</svg>
+

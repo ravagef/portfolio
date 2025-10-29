@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #0a0b0f;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  @apply bg-bg text-white antialiased;
+  /* Remove vignette-style corner gradients to avoid visible section divides */
+  background-image: none;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.bg-topo-layer {
+  /* Two layers at different scales/offsets to reduce visible tiling */
+  background-image: url('/bg-topo.svg'), url('/bg-topo.svg');
+  background-size: 1200px 1200px, 1800px 1800px;
+  background-position: 0% 0%, 60% 40%;
+  background-repeat: repeat, repeat;
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+.glass {
+  @apply bg-white/5 backdrop-blur-md border border-white/10 shadow-lg;
+}
+
+/* Accessibility and polish */
+::selection { background: rgba(255, 59, 59, 0.35); color: #fff; }
+
+a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(255, 59, 59, 0.8);
+  border-radius: 0.5rem;
+}
+
+.skip-link {
+  position: absolute; left: -9999px; top: -9999px;
+}
+.skip-link:focus-visible {
+  left: 1rem; top: 1rem; z-index: 50;
+  @apply px-3 py-2 rounded glass;
+}
+
