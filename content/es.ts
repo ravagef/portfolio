@@ -1,4 +1,4 @@
-export const about = `Estudiante apasionado de TIC con experiencia en desarrollo de software, computación en la nube y ciberseguridad. Dominio de C++, Python y tecnologías web, con enfoque en sistemas eficientes y seguros. Experiencia en front‑end y back‑end, optimización de sistemas y colaboración con equipos multidisciplinarios. Nacido en EE. UU., criado en México.`;
+export const about = `Estudiante apasionado de TIC con experiencia en desarrollo de software, computación en la nube y ciberseguridad. Dominio de C++, Python y tecnologías web, con enfoque en sistemas eficientes y seguros. Experiencia en front‑end y back‑end, optimización de sistemas y colaboración con equipos multidisciplinarios. Nacido en EUA. , criado en México.`;
 
 export const experience = [
   {
