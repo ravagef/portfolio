@@ -27,6 +27,7 @@ export default function Contact() {
   return (
     <section id="contact" className="mt-20">
       <h2 className="text-2xl font-display">Contact</h2>
+      <p className="mt-2 text-muted">Feel free to contact me!</p>
       <form onSubmit={onSubmit} className="mt-6 grid gap-4 max-w-xl">
         <input required name="name" placeholder="Your name" className="glass rounded px-4 py-3" />
         <input required type="email" name="email" placeholder="Email" className="glass rounded px-4 py-3" />

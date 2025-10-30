@@ -8,9 +8,13 @@ export default function LanguageSwitcher({ currentLocale }: { currentLocale: str
   const pathname = usePathname();
 
   const switchLang = (newLocale: string) => {
+    // Jump to top first to avoid stale scroll position
+    window.scrollTo(0, 0);
     // Replace current path with new locale
     const newPath = (pathname?.replace(`/${currentLocale}`, `/${newLocale}`) || `/${newLocale}`) as any;
     router.push(newPath);
+    // Ensure at top after navigation finishes
+    setTimeout(() => window.scrollTo(0, 0), 0);
   };
 
   return (

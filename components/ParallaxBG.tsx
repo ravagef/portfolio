@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import { usePathname } from 'next/navigation';
 
 export default function ParallaxBG() {
   const [y, setY] = useState(0);
@@ -30,6 +31,13 @@ export default function ParallaxBG() {
       if (rafId.current) cancelAnimationFrame(rafId.current);
     };
   }, []);
+
+  // Reset positions on route change (e.g., locale switch)
+  const pathname = usePathname();
+  useEffect(() => {
+    target.current = 0;
+    setY(0);
+  }, [pathname]);
 
   const layer1Y = -(y * 0.05);
   const layer2Y = -(y * 0.025);

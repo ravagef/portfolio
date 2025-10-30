@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import OutlineHeading from '@/components/OutlineHeading';
 import { useState } from 'react';
 import ProjectModal from '@/components/ProjectModal';
 
@@ -18,16 +19,8 @@ export default function Projects({ projects }: { projects: Project[] }) {
   return (
     <>
       <section id="projects" className="mt-20">
-        <motion.h2
-          className="text-2xl font-display"
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-        >
-          Projects
-        </motion.h2>
-        <div className="mt-6 grid gap-4">
+        <OutlineHeading text="Projects" />
+        <div className="mt-6 grid gap-5">
           {projects.map((it, i) => (
             <motion.button
               key={i}
@@ -35,7 +28,7 @@ export default function Projects({ projects }: { projects: Project[] }) {
                 setSelected(it);
                 setIsOpen(true);
               }}
-              className="block glass rounded p-4 hover:bg-white/10 transition text-left w-full"
+              className="block glass rounded-lg p-6 hover:bg-white/10 transition text-left w-full"
               initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
@@ -43,8 +36,8 @@ export default function Projects({ projects }: { projects: Project[] }) {
               whileHover={{ scale: 1.01 }}
               whileTap={{ scale: 0.99 }}
             >
-              <div className="font-medium">{it.title}</div>
-              {it.subtitle && <div className="text-muted text-sm">{it.subtitle}</div>}
+              <div className="font-medium text-lg md:text-xl">{it.title}</div>
+              {it.subtitle && <div className="text-muted text-base">{it.subtitle}</div>}
             </motion.button>
           ))}
         </div>

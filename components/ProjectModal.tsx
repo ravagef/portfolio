@@ -7,7 +7,12 @@ type Project = {
   slug: string;
   title: string;
   subtitle: string;
-  details: string;
+  details?: string;
+  problem?: string;
+  role?: string;
+  languages?: string[]; // e.g., ['python','cpp']
+  tools?: string[]; // e.g., ['aws','powerbi']
+  outcomes?: string[];
 };
 
 export default function ProjectModal({ project, isOpen, onClose }: { project: Project | null; isOpen: boolean; onClose: () => void }) {
@@ -45,9 +50,9 @@ export default function ProjectModal({ project, isOpen, onClose }: { project: Pr
             transition={{ type: 'spring', damping: 25 }}
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="glass rounded-lg p-8 max-w-2xl w-full max-h-[80vh] overflow-y-auto">
+            <div className="glass rounded-lg p-10 max-w-3xl w-full max-h-[80vh] overflow-y-auto">
               <div className="flex justify-between items-start mb-4">
-                <h2 className="text-2xl font-display">{project.title}</h2>
+                <h2 className="text-3xl font-display">{project.title}</h2>
                 <button
                   onClick={onClose}
                   className="text-muted hover:text-white transition text-2xl leading-none"
@@ -56,8 +61,45 @@ export default function ProjectModal({ project, isOpen, onClose }: { project: Pr
                   ×
                 </button>
               </div>
-              <p className="text-muted mb-4">{project.subtitle}</p>
-              <p className="leading-relaxed">{project.details}</p>
+              <p className="text-muted mb-4 text-lg">{project.subtitle}</p>
+              {project.details && <p className="leading-relaxed mb-6 text-base md:text-lg">{project.details}</p>}
+              <div className="grid gap-4">
+                {project.problem && (
+                  <div>
+                    <div className="text-sm text-muted">Problem</div>
+                    <p className="text-base md:text-lg">{project.problem}</p>
+                  </div>
+                )}
+                {project.role && (
+                  <div>
+                    <div className="text-sm text-muted">Role</div>
+                    <p className="text-base md:text-lg">{project.role}</p>
+                  </div>
+                )}
+                {(project.languages?.length || project.tools?.length) ? (
+                  <div className="flex flex-wrap gap-3">
+                    {project.languages?.map((key, i) => (
+                      <span key={`lang-${i}`} className="px-3 py-1.5 rounded bg-white/5 border border-white/10 text-sm flex items-center gap-2">
+                        <img src={`/logos/${key}.svg`} alt={key} className="h-5 w-5" />
+                        {key}
+                      </span>
+                    ))}
+                    {project.tools?.map((key, i) => (
+                      <span key={`tool-${i}`} className="px-3 py-1.5 rounded bg-white/5 border border-white/10 text-sm flex items-center gap-2">
+                        <img src={`/logos/${key}.svg`} alt={key} className="h-5 w-5" />
+                        {key}
+                      </span>
+                    ))}
+                  </div>
+                ) : null}
+                {project.outcomes?.length ? (
+                  <ul className="list-disc pl-6 text-base text-muted">
+                    {project.outcomes.map((o, i) => (
+                      <li key={i}>{o}</li>
+                    ))}
+                  </ul>
+                ) : null}
+              </div>
             </div>
           </motion.div>
         </>

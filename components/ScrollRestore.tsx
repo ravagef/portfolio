@@ -8,7 +8,7 @@ export default function ScrollRestore() {
 
   useEffect(() => {
     // Scroll to top on route change (including locale switches)
-    window.scrollTo({ top: 0, behavior: 'instant' });
+    window.scrollTo({ top: 0, behavior: 'auto' });
   }, [pathname]);
 
   return null;
