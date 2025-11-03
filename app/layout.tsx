@@ -12,6 +12,14 @@ const jet = JetBrains_Mono({ subsets: ['latin'], variable: '--font-jet' });
 export const metadata: Metadata = {
   title: 'Portfolio',
   description: 'Modern bilingual portfolio',
+  openGraph: {
+    type: 'website',
+    title: 'Portfolio',
+    description: 'Click to access my portfolio! / ¡Haz clic para acceder a mi portafolio!',
+  },
+  twitter: {
+    card: 'summary_large_image',
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

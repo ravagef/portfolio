@@ -7,6 +7,7 @@ import LanguageGate from '@/components/LanguageGate';
 import LanguageSwitcher from '@/components/LanguageSwitcher';
 import ScrollRestore from '@/components/ScrollRestore';
 import type { Metadata } from 'next';
+import { headers } from 'next/headers';
 
 export default async function LocaleLayout({ children, params }: any) {
   const { locale } = await params;
@@ -39,6 +40,37 @@ export async function generateMetadata({ params }: any): Promise<Metadata> {
   const messages = getMessagesForLocale(locale) as any;
   const title = messages?.home?.title || 'Portfolio';
   const description = messages?.home?.description || 'Portfolio website';
-  return { title, description };
+  
+  // Get the base URL from headers
+  const headersList = await headers();
+  const host = headersList.get('host') || 'localhost:3000';
+  const protocol = headersList.get('x-forwarded-proto') || 'http';
+  const baseUrl = `${protocol}://${host}`;
+  
+  const ogImageUrl = `${baseUrl}/og`;
+  
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      images: [
+        {
+          url: ogImageUrl,
+          width: 1200,
+          height: 630,
+          alt: 'Click to access my portfolio! / ¡Haz clic para acceder a mi portafolio!',
+        },
+      ],
+      type: 'website',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      images: [ogImageUrl],
+    },
+  };
 }
 
