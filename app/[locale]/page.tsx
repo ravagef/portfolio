@@ -15,6 +15,7 @@ import { useParams } from 'next/navigation';
 
 export default function Home() {
   const t = useTranslations('home');
+  const tSections = useTranslations('sections');
   const params = useParams();
   const locale = params.locale as string;
   const content = locale === 'en' ? enContent : locale === 'es' ? esContent : null;
@@ -26,9 +27,9 @@ export default function Home() {
       <About text={content.about} />
       <Experience items={content.experience as any} />
       <Projects projects={content.projects as any} />
-      <SimpleList id="education" heading="Education" items={content.education as any} />
-      <SimpleList id="skills" heading="Skills" items={content.skills as any} />
-      <SimpleList id="languages" heading="Languages" items={content.languages as any} />
+      <SimpleList id="education" heading={tSections('education')} items={content.education as any} />
+      <SimpleList id="skills" heading={tSections('skills')} items={content.skills as any} />
+      <SimpleList id="languages" heading={tSections('languages')} items={content.languages as any} />
       <Socials />
       <Contact />
     </main>

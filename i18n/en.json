@@ -4,6 +4,26 @@
     "heroSubtitle": "Student crafting modern web experiences.",
     "title": "Alan Hernandez — Portfolio",
     "description": "Bilingual portfolio showcasing experience, projects, education and contact."
+  },
+  "sections": {
+    "about": "About",
+    "experience": "Experience",
+    "projects": "Projects",
+    "education": "Education",
+    "skills": "Skills",
+    "languages": "Languages",
+    "contact": "Contact",
+    "contactSubtitle": "Feel free to contact me!",
+    "contactNamePlaceholder": "Your name",
+    "contactEmailPlaceholder": "Email",
+    "contactMessagePlaceholder": "Message",
+    "send": "Send",
+    "contactSuccess": "Thanks! I'll get back to you.",
+    "contactError": "Something went wrong. Try again."
+  },
+  "modal": {
+    "problem": "Problem",
+    "role": "Role"
   }
 }
 

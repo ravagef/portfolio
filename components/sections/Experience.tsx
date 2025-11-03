@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import OutlineHeading from '@/components/OutlineHeading';
+import { useTranslations } from 'next-intl';
 
 type ExperienceItem = {
   slug: string;
@@ -18,6 +19,7 @@ type ExperienceItem = {
 };
 
 function ExperienceModal({ item, isOpen, onClose }: { item: ExperienceItem | null; isOpen: boolean; onClose: () => void }) {
+  const t = useTranslations('modal');
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
@@ -56,8 +58,8 @@ function ExperienceModal({ item, isOpen, onClose }: { item: ExperienceItem | nul
               {item.subtitle && <p className="text-muted mb-4 text-lg">{item.subtitle}</p>}
               {item.details && <p className="leading-relaxed mb-6 text-base md:text-lg">{item.details}</p>}
               <div className="grid gap-4">
-                {item.problem && (<div><div className="text-sm text-muted">Problem</div><p className="text-base md:text-lg">{item.problem}</p></div>)}
-                {item.role && (<div><div className="text-sm text-muted">Role</div><p className="text-base md:text-lg">{item.role}</p></div>)}
+                {item.problem && (<div><div className="text-sm text-muted">{t('problem')}</div><p className="text-base md:text-lg">{item.problem}</p></div>)}
+                {item.role && (<div><div className="text-sm text-muted">{t('role')}</div><p className="text-base md:text-lg">{item.role}</p></div>)}
                 {(item.languages?.length || item.tools?.length) ? (
                   <div className="flex flex-wrap gap-3">
                     {item.languages?.map((key, i) => (
@@ -89,12 +91,13 @@ function ExperienceModal({ item, isOpen, onClose }: { item: ExperienceItem | nul
 }
 
 export default function Experience({ items }: { items: ExperienceItem[] }) {
+  const t = useTranslations('sections');
   const [selected, setSelected] = useState<ExperienceItem | null>(null);
   const [isOpen, setIsOpen] = useState(false);
   return (
     <>
       <section id="experience" className="mt-20">
-        <OutlineHeading text="Experience" />
+        <OutlineHeading text={t('experience')} />
         <div className="mt-6 grid gap-4">
           {items.map((it, i) => (
             <motion.button

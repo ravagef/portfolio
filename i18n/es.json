@@ -4,6 +4,26 @@
     "heroSubtitle": "Estudiante creando experiencias web modernas.",
     "title": "Alan Hernandez — Portafolio",
     "description": "Portafolio bilingüe con experiencia, proyectos, educación y contacto."
+  },
+  "sections": {
+    "about": "Sobre mí",
+    "experience": "Experiencia",
+    "projects": "Proyectos",
+    "education": "Educación",
+    "skills": "Habilidades",
+    "languages": "Idiomas",
+    "contact": "Contacto",
+    "contactSubtitle": "¡No dudes en contactarme!",
+    "contactNamePlaceholder": "Tu nombre",
+    "contactEmailPlaceholder": "Correo electrónico",
+    "contactMessagePlaceholder": "Mensaje",
+    "send": "Enviar",
+    "contactSuccess": "¡Gracias! Te responderé pronto.",
+    "contactError": "Algo salió mal. Intenta de nuevo."
+  },
+  "modal": {
+    "problem": "Problema",
+    "role": "Rol"
   }
 }
 

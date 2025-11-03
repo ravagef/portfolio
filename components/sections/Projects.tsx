@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import OutlineHeading from '@/components/OutlineHeading';
 import { useState } from 'react';
 import ProjectModal from '@/components/ProjectModal';
+import { useTranslations } from 'next-intl';
 
 type Project = {
   slug: string;
@@ -13,13 +14,14 @@ type Project = {
 };
 
 export default function Projects({ projects }: { projects: Project[] }) {
+  const t = useTranslations('sections');
   const [selected, setSelected] = useState<Project | null>(null);
   const [isOpen, setIsOpen] = useState(false);
 
   return (
     <>
       <section id="projects" className="mt-20">
-        <OutlineHeading text="Projects" />
+        <OutlineHeading text={t('projects')} />
         <div className="mt-6 grid gap-5">
           {projects.map((it, i) => (
             <motion.button

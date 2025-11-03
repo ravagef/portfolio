@@ -2,6 +2,7 @@
 
 import { motion, AnimatePresence } from 'framer-motion';
 import { useEffect } from 'react';
+import { useTranslations } from 'next-intl';
 
 type Project = {
   slug: string;
@@ -16,6 +17,7 @@ type Project = {
 };
 
 export default function ProjectModal({ project, isOpen, onClose }: { project: Project | null; isOpen: boolean; onClose: () => void }) {
+  const t = useTranslations('modal');
   useEffect(() => {
     if (isOpen) document.body.style.overflow = 'hidden';
     else document.body.style.overflow = '';
@@ -66,13 +68,13 @@ export default function ProjectModal({ project, isOpen, onClose }: { project: Pr
               <div className="grid gap-4">
                 {project.problem && (
                   <div>
-                    <div className="text-sm text-muted">Problem</div>
+                    <div className="text-sm text-muted">{t('problem')}</div>
                     <p className="text-base md:text-lg">{project.problem}</p>
                   </div>
                 )}
                 {project.role && (
                   <div>
-                    <div className="text-sm text-muted">Role</div>
+                    <div className="text-sm text-muted">{t('role')}</div>
                     <p className="text-base md:text-lg">{project.role}</p>
                   </div>
                 )}
